@@ -2770,9 +2770,6 @@ V6:
             - ''
           要件対象リソース:
             - ''
-            - V6.5: null
-            - section_name: General Multi-factor authentication requirements
-            - requirements: null
     V6.5:
       section_name: General Multi-factor authentication requirements
       requirements:
@@ -2927,9 +2924,6 @@ V6:
             - ''
           要件対象リソース:
             - ''
-            - V6.6: null
-            - section_name: Out-of-Band authentication mechanisms
-            - requirements: null
     V6.6:
       section_name: Out-of-Band authentication mechanisms
       requirements:
@@ -3013,9 +3007,6 @@ V6:
             - ''
           要件対象リソース:
             - ''
-            - V6.7: null
-            - section_name: Cryptographic authentication mechanism
-            - requirements: null
     V6.7:
       section_name: Cryptographic authentication mechanism
       requirements:
@@ -5438,7 +5429,7 @@ V12:
           L: 2
           日本語訳: アプリケーション内の内部的なHTTPベースのサービス間のすべての接続に、TLSまたはその他の適切なトランスポート暗号化メカニズムが使用されていることを確認してください。
           ステータス: 確認中
-          対応方法: VPC内部のHTTPベースのサービス間通信（例: マイクロサービス間）が適切にTLS化されているか、ネットワーク設定やサービスメッシュの設定等を確認する。
+          対応方法: "VPC内部のHTTPベースのサービス間通信（例: マイクロサービス間）が適切にTLS化されているか、ネットワーク設定やサービスメッシュの設定等を確認する。"
           ドキュメント:
             - 対象外
           実装確認結果:
@@ -6486,9 +6477,9 @@ V15:
           ドキュメント:
             - 対象外
           実装確認結果:
-            - 要件を満たしている。
-            - プロジェクト全体（root, server, client）の `tsconfig.json` にて `"strict": true` が設定され、型の一貫性が静的に保証されている。
-            - さらに、`eslint.config.ts` にて `eqeqeq: 'error'` ルールが有効化されており、コード全体で暗黙の型変換を伴わない厳密な等価演算（===）の使用が強制（CIでブロック）されている。
+            - "要件を満たしている。"
+            - "プロジェクト全体（root, server, client）の `tsconfig.json` にて `strict: true` が設定され、型の一貫性が静的に保証されている。"
+            - "さらに、`eslint.config.ts` にて `eqeqeq: 'error'` ルールが有効化されており、コード全体で暗黙の型変換を伴わない厳密な等価演算（===）の使用が強制（CIでブロック）されている。"
           インフラリソース:
             - 対象外
           エビデンス:
@@ -6915,10 +6906,10 @@ V16:
             - 対象外。
             - 現在のバックエンドの実装において、外部のWeb API等を直接呼び出す処理が存在しないため。
             - 【将来的に外部API通信を実装する場合の安全な実装例】
-            - 1. タイムアウトの強制: axios等を利用する場合、意図しないハングアップを防ぐために必ず `timeout` を設定する（例: `axios.get(url, { timeout: 5000 })`）。
-            - 2. 例外の捕捉: エラー発生時には `try-catch` で適切に捕捉し、システム全体をクラッシュさせない。
-            - 3. サーキットブレーカー: 外部APIへの依存度が高い場合、`opossum` などのライブラリを用いて「連続エラー時に通信を遮断し、自システムのリソース枯渇を防ぐ仕組み」を導入する。
-            - 4. グレースフルデグラデーション: 外部APIがダウンした場合は、代替のレスポンス（キャッシュやデフォルト値）を返し、最低限のサービス提供を継続する設計とする。
+            - "1. タイムアウトの強制: axios等を利用する場合、意図しないハングアップを防ぐために必ず `timeout` を設定する（例: `axios.get(url, { timeout: 5000 })`）。"
+            - "2. 例外の捕捉: エラー発生時には `try-catch` で適切に捕捉し、システム全体をクラッシュさせない。"
+            - "3. サーキットブレーカー: 外部APIへの依存度が高い場合、`opossum` などのライブラリを用いて「連続エラー時に通信を遮断し、自システムのリソース枯渇を防ぐ仕組み」を導入する。"
+            - "4. グレースフルデグラデーション: 外部APIがダウンした場合は、代替のレスポンス（キャッシュやデフォルト値）を返し、最低限のサービス提供を継続する設計とする。"
           インフラリソース:
             - 対象外
           エビデンス:
